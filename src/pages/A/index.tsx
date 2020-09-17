@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from 'react'
 import { View, Text, Navigator } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import Taro, { useDidShow } from '@tarojs/taro'
 import './index.scss'
 
 export default () =>{
@@ -14,10 +14,14 @@ export default () =>{
     }
     console.log('in useEffect')
   }, [])
+
+  useDidShow(() => {
+    console.log('in useDidShow')
+  })
+
     return (
       <View className='index'>
         <Navigator url='/pages/B/index' >Link to B</Navigator>
       </View>
     )
-
 }
